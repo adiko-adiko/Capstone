@@ -1,0 +1,27 @@
+{% extends "base.html" %}
+{% block content %}
+<div class="jumbotron">
+  <h1>  </h1>
+  
+<table class="table">
+	<tr>
+		<th> ID </th>
+		<th> Item </th>
+		<th> EMP_ID </th>
+		<th> Year </th>
+		<th> Week </th>
+	</tr>
+  
+    {% for c in TractorFill %}
+    <tr>
+				<td>{{ c.id }}</td>
+				<td>{{ c.item }}</td>
+				<td>{{ c.empid }}</td>
+				<td>{{ c.dateyr.year }}</td>
+				<td>{{ c.quantity }}</td>
+	</tr>
+    {% endfor %}
+  
+</table>
+</div>
+{% endblock %}

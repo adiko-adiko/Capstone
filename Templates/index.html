@@ -1,0 +1,18 @@
+{% extends "base.html" %}
+{% block content %}
+
+<div class="jumbotron">
+  <h1 style="text-align:center">Welcome, let's verify your identity</h1>
+  
+	<div class="select">
+  <select aria-label="Select region">
+    <option selected> </option>
+    <option value="1">South West</option>
+    <option value="2">Nort West</option>
+  </select>
+	</div>
+	<form method="POST">
+	{{ form.submit() }}
+	</form>
+</div>
+{% endblock %}
