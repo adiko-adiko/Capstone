@@ -9,10 +9,23 @@
       {# This hidden_tag is a CSRF security feature. #}
       {{ form.hidden_tag() }}
 <br>	  {{ form.empid.label }} {{ form.empid() }} <br>
+{% for empid, errors in form.errors.items() %} 
+<small class="form-text text-muted ">
+        {{ ', '.join(errors) }}
+    </small>
+{% endfor %}
 <br>      {{ form.item.label }} {{ form.item() }} <br>
+{% for item, errors in form.errors.items() %} 
+<small class="form-text text-muted ">
+        {{ ', '.join(errors) }}
+    </small>
+{% endfor %}
+
 <br>	  {{ form.dateyr.label }} {{ form.dateyr() }} <br>
 <br>	  {{ form.datewk.label }} {{ form.datewk() }} <br>
 <br>	  {{ form.quantity.label }} {{ form.quantity() }} <br>
+ 
+   
 <br>      {{ form.submit() }}
 	</form>
 </div>

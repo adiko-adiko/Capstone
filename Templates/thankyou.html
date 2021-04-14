@@ -1,0 +1,9 @@
+{% extends "base.html" %}
+{% block content %}
+<div class="jumbotron">
+<h1 style="text-align:center">The sales order has been added.</h1>
+<br>
+<a  class="w3-bar-item w3-button w3-white" href="{{ url_for('neworder') }}">Return to Previous Page</a>
+<a  class="w3-bar-item w3-button w3-white" href="{{ url_for('index') }}">Done</a>
+</div>
+{% endblock %}

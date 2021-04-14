@@ -1,9 +1,10 @@
 import os
-from flask import Flask, render_template, url_for, redirect
+from flask import Flask, render_template, url_for, redirect, flash
 from flask_sqlalchemy import SQLAlchemy
 from flask_migrate import Migrate
 from forms import NewOrderForm
 from datetime import date
+from wtforms.validators import ValidationError, DataRequired, Length
 
 basedir = os.path.abspath(os.path.dirname(__file__))
 
@@ -12,12 +13,18 @@ app = Flask(__name__)
 app.config['SECRET_KEY'] = 'supersecretkey'
 app.config['SQLALCHEMY_DATABASE_URI'] = 'mysql+pymysql://sha2user:Boot!camp2021!@localhost/capstone'
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
-
-mysql = MySQL(app)
-
+db = SQLAlchemy(app)
 Migrate(app,db)
 
 class Order(db.Model):
+    __tablename__ = 'Orders'
+    id = db.Column(db.Integer, primary_key= True)
+    item = db.Column(db.Text)
+    dateyr = db.Column(db.Date)
+    datewk = db.Column(db.Date)
+    quantity = db.Column(db.Integer)
+    empid = db.Column(db.Text)
+    
     def __init__(self, item, dateyr, datewk, empid, quantity):
     
         self.item = item
@@ -41,19 +48,19 @@ def neworder():
         datewk = "14"
         empid = form.empid.data
         quantity = form.quantity.data
-        new_order = Order(item, dateyr, datewk, empid, quantity)
+        new_order = Order(id, item, dateyr, datewk, empid, quantity)
         db.session.add(new_order)
         db.session.commit()
 
         flash("The order has been added.")
-        return redirect(url_for('neworder'))
+        return redirect(url_for('thankyou'))
     return render_template('neworder.html', form=form)
     
-@app.route('/salesorder')
-def listorders():
-  
-    Orders = Order.query.all()
-    return render_template('orderadded.html', Orders=Orders)
+
+
+@app.route('/submitted') 
+def thankyou():
+    return render_template('thankyou.html')
 
 def page_not_found(e):
     return render_template('error.html')
