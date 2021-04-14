@@ -1,6 +1,7 @@
 import os
 from flask import Flask, render_template, url_for, redirect, flash
 from flask_sqlalchemy import SQLAlchemy
+#import all relevant libraries
 from flask_migrate import Migrate
 from forms import NewOrderForm
 from datetime import date
@@ -10,12 +11,14 @@ basedir = os.path.abspath(os.path.dirname(__file__))
 
 app = Flask(__name__)
 
+#connect to the server
 app.config['SECRET_KEY'] = 'supersecretkey'
 app.config['SQLALCHEMY_DATABASE_URI'] = 'mysql+pymysql://sha2user:Boot!camp2021!@localhost/capstone'
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 db = SQLAlchemy(app)
 Migrate(app,db)
 
+#create the table for the sales order
 class Order(db.Model):
     __tablename__ = 'Orders'
     id = db.Column(db.Integer, primary_key= True)
@@ -41,7 +44,7 @@ def index():
 def neworder():
 
     form = NewOrderForm()
-
+#this is used to store the data into the table from the database
     if form.validate_on_submit():
         item = form.item.data
         dateyr = "2021"
