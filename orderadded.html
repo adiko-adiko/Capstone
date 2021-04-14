@@ -10,14 +10,16 @@
 		<th> EMP_ID </th>
 		<th> Year </th>
 		<th> Week </th>
+		<th> Quantity </th>
 	</tr>
   
-    {% for c in TractorFill %}
+    {% for c in Orders %}
     <tr>
 				<td>{{ c.id }}</td>
 				<td>{{ c.item }}</td>
 				<td>{{ c.empid }}</td>
-				<td>{{ c.dateyr.year }}</td>
+				<td>{{ c.dateyr }}</td>
+				<td>{{ c.datewk }}</td>
 				<td>{{ c.quantity }}</td>
 	</tr>
     {% endfor %}

@@ -2,9 +2,9 @@
 {% block content %}
 
 <div class="jumbotron">
-  <h1 style="text-align:center">Welcome, let's verify your identity</h1>
-  
-	<div class="select">
+  <h1 style="text-align:center">Welcome, select your region</h1>
+<body style="text-align:center">  
+	<div class="select" style="center">
   <select aria-label="Select region">
     <option selected> </option>
     <option value="1">South West</option>
@@ -14,5 +14,6 @@
 	<form method="POST">
 	{{ form.submit() }}
 	</form>
+</body>
 </div>
 {% endblock %}

@@ -1,28 +1,27 @@
 <!DOCTYPE html>
+<html lang="en">
+<title> TractorTEK </title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+<body>
 
-<html lang="en" dir="ltr">
-  <head>
-    <meta charset="utf-8">
-	<link rel="stylesheet" href="style.css">
-   
-   
-	<title> TractorTEK </title>
-   </head>
-   
+<!-- Header -->
+<header class="w3-display-container w3-content w3-center" style="max-width:1500px">
+  <img class="w3-image" src="https://images.unsplash.com/photo-1531798123643-26d5ab4c264d?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=750&q=80" width="1500" height="600">
+  <div class="w3-display-middle w3-padding-large w3-border w3-wide w3-text-light-grey w3-center">
+    <h1 class="w3-hide-medium w3-hide-small w3-xxxlarge">TractorTEK</h1>
+    <h3 class="w3-hide-medium w3-hide-small">Employee Portal</h3>
+  </div>
   
-  <body>
+  <!-- Navbar (placed at the bottom of the header image) -->
+  <div class="w3-bar w3-light-grey w3-round w3-display-bottommiddle w3-hide-small" style="bottom:-16px">
+    <a  class="w3-bar-item w3-button w3-white">Home</a>
+    <a  class="w3-bar-item w3-button w3-white">New Sales Order</a>
+    <a  class="w3-bar-item w3-button w3-white">List Orders</a>
+  </div>
+</header>
 
-    <nav class="navbar navbar-expand-lg navbar-light bg-light justify-content-center">
 
-    <div class="navbar-nav">
-      <a class="nav-item nav-link" href="{{ url_for('index') }}">Home</a>
-      <a class="nav-item nav-link" href="{{ url_for('addpuppy') }}">Add Puppy</a>
-	  <a class="nav-item nav-link" href="{{ url_for('addowner') }}">Shop</a>
-      <a class="nav-item nav-link" href="{{ url_for('listpuppy') }}">List Puppy</a>
-	  <a class="nav-item nav-link" href="{{ url_for('listowner') }}">Contact Us</a> 
-      <a class="nav-item nav-link" href="{{ url_for('delpuppy') }}">Checkout</a>
-      
-    </div>
-
-</nav>
+</body>
 </html>

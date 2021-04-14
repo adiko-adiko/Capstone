@@ -16,7 +16,7 @@ app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 db = SQLAlchemy(app)
 
 Migrate(app,db)
-
+'''
 class Order(db.Model):
 
     __tablename__ = 'Orders'
@@ -53,8 +53,8 @@ def neworder():
 
     if form.validate_on_submit():
         item = form.item.data
-        dateyr = form.dateyr.data
-        datewk = form.datewk.data
+        dateyr = "2021"
+        datewk = "14"
         empid = form.empid.data
         quantity = form.quantity.data
         new_order = Order(item, dateyr, datewk, empid, quantity)
@@ -76,4 +76,3 @@ def page_not_found(e):
 
 if __name__ == '__main__':
     app.run(debug=True)
-'''
