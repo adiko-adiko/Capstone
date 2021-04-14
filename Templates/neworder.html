@@ -3,16 +3,17 @@
 
 <title> New Sales Order</title>
 <div class="jumbotron">
-	<p>Fill out the form below:</p>
-	<form method="POST">
+<br>
+	<p style="text-align:center">Fill out the form below:</p>
+	<form method="POST" style="text-align:center">
       {# This hidden_tag is a CSRF security feature. #}
       {{ form.hidden_tag() }}
-	  {{ form.empid.label }} {{ form.empid() }}<br>
-      {{ form.item.label }} {{ form.item() }}<br>
-	  {{ form.date.label }} {{ form.dateyr() }}<br>
-	  {{ form.date.label }} {{ form.datewk() }}<br>
-	  {{ form.quantity.label }} {{ form.quantity() }}<br>
-      {{ form.submit() }}
+<br>	  {{ form.empid.label }} {{ form.empid() }} <br>
+<br>      {{ form.item.label }} {{ form.item() }} <br>
+<br>	  {{ form.dateyr.label }} {{ form.dateyr() }} <br>
+<br>	  {{ form.datewk.label }} {{ form.datewk() }} <br>
+<br>	  {{ form.quantity.label }} {{ form.quantity() }} <br>
+<br>      {{ form.submit() }}
 	</form>
 </div>
 {% endblock %}

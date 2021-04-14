@@ -2,7 +2,7 @@
 {% block content %}
 
 <div class="jumbotron">
-  <h1 style="text-align:center">Welcome, select your region</h1>
+  <h1 style="text-align:center">Welcome, select your region</h1> <br>
 <body style="text-align:center">  
 	<div class="select" style="center">
   <select aria-label="Select region">
@@ -10,10 +10,8 @@
     <option value="1">South West</option>
     <option value="2">Nort West</option>
   </select>
-	</div>
-	<form method="POST">
-	{{ form.submit() }}
-	</form>
+	</div><br>
+	<a  class="w3-bar-item w3-button w3-white" href="{{ url_for('neworder') }}">Submit</a>
 </body>
 </div>
 {% endblock %}

@@ -2,7 +2,7 @@ import os
 from flask import Flask, render_template, url_for, redirect
 from flask_sqlalchemy import SQLAlchemy
 from flask_migrate import Migrate
-#from forms import NewOrderForm///
+from forms import NewOrderForm
 from datetime import date
 
 basedir = os.path.abspath(os.path.dirname(__file__))
@@ -13,23 +13,11 @@ app.config['SECRET_KEY'] = 'supersecretkey'
 app.config['SQLALCHEMY_DATABASE_URI'] = 'mysql+pymysql://sha2user:Boot!camp2021!@localhost/capstone'
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 
-db = SQLAlchemy(app)
+mysql = MySQL(app)
 
 Migrate(app,db)
-'''
-class Order(db.Model):
 
-    __tablename__ = 'Orders'
-    id = db.Column(db.Integer, primary_key= True)
-    item = db.Column(db.Text)
-    dateyr = db.Column(db.Date)
-    datewk = db.Column(db.Date)
-    quantity = db.Column(db.Integer)
-    empid = db.Column(db.Text)
-  #  robot = db.Column(db.Boolean)
-  #  owner = db.relationship('Owner', backref='puppy', uselist=False)
-    
-    
+class Order(db.Model):
     def __init__(self, item, dateyr, datewk, empid, quantity):
     
         self.item = item
@@ -38,12 +26,8 @@ class Order(db.Model):
         self.datewk = datewk
         self.empid = empid
 
-'''
-
 @app.route('/', methods=['GET', 'POST'])
 def index():
-    if form.validate_on_submit():
-        return redirect(url_for('neworder'))
     return render_template('index.html')
 
 @app.route('/NewOrder', methods=['GET', 'POST'])
