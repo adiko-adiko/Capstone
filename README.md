@@ -1,3 +1,3 @@
 # Capstone
 
-While presenting I noticed that for the flask app while submitting the form, the app breaks. It's due to the presence of the "id" input in the new_order=Order(...) which once remove fixes that issue.
+The files create a flask app to input real time data. With the use of Pandas, some data profiling is done via Jupyter Notebook.
