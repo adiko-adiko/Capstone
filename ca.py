@@ -51,7 +51,7 @@ def neworder():
         datewk = "14"
         empid = form.empid.data
         quantity = form.quantity.data
-        new_order = Order(id, item, dateyr, datewk, empid, quantity)
+        new_order = Order(item, dateyr, datewk, empid, quantity)
         db.session.add(new_order)
         db.session.commit()
 
